@@ -1,6 +1,6 @@
 # Introduction
 
-This repo features mining scripts for Mac, Linux and Windows. 
+This repo features mining scripts for Mac, Linux and Windows.  Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
 
 # Installation
 
