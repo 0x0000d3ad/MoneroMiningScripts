@@ -121,5 +121,6 @@ run.bat
 4. [XMR miner](https://github.com/fireice-uk/xmr-stak/releases)
 6. [Miner pool](http://moneropools.com/)
 7. [Another Miner Pool](https://supportxmr.com/)
-8. [Mining Article (doesn't open as of 2024-03-13)](https://www.monero-miner.info/2020/05/mine-monero-without-fees.html)
-9. [Mining Article (doesn't open as of 2024-03-13)](https://www.pinode.co.uk/monero-node-for-pi-3-or-armv7-devices-no-lcd-display.html)
+8. [Swapping](https://letsexchange.io/)
+9. [Mining Article (doesn't open as of 2024-03-13)](https://www.monero-miner.info/2020/05/mine-monero-without-fees.html)
+10. [Mining Article (doesn't open as of 2024-03-13)](https://www.pinode.co.uk/monero-node-for-pi-3-or-armv7-devices-no-lcd-display.html)
