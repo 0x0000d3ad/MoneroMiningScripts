@@ -2,6 +2,10 @@
 
 This repo features mining scripts for Mac, Linux and Windows.  Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
 
+Feeling generous?  Donate Monero to this address:
+
+```4A4tgkWPxYiAzwUmMDzrXkZ1p5a8aacmSdqniMYTgQN7FX9wajLDvtxDHp7tXJsJHANAcadruP8Cmgx4qgAcSVP84iTaPMA```
+
 # Installation
 
 ## Linux
