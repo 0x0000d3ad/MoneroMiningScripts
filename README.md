@@ -12,43 +12,49 @@ Feeling generous?  Donate Monero to this address:
 
 Steps for installing on Linux:
 
-1. Install dependencies
+1. Update package manager
+
+```bash
+sudo apt-get update; sudo apt-get upgrade -y
+```
+
+2. Install dependencies
 
 ```bash
 sudo apt-get install git build-essential cmake automake libtool autoconf
 ```
 
-2. Clone the repo
+3. Clone the repo
 
 ```bash
 git clone https://github.com/xmrig/xmrig.git
 ```
 
-3. Make build and scripts directory
+4. Make build and scripts directory
 
 ```bash
 mkdir xmrig/build && cd xmrig/scripts
 ```
 
-4. Run build dependency script
+5. Run build dependency script
 
 ```bash
 ./build_deps.sh && cd ../build
 ```
 
-5. Run CMake
+6. Run CMake
 
 ```bash
 cmake .. -DXMRIG_DEPS=scripts/deps
 ```
 
-6. Run Make
+7. Run Make
 
 ```bash
 make -j$(nproc)
 ```
 
-7. Copy `run.sh` into the excecutable directory and run it
+8. Copy `run.sh` into the excecutable directory and run it
 
 ```bash
 ./run.sh
@@ -79,7 +85,7 @@ git clone https://github.com/xmrig/xmrig.git
 4. Make the build directory and cd into it
 
 ```bash
-mkdir xmrig/build; cd xmrig/build
+mkdir xmrig/build && cd xmrig/build
 ```
 
 5. Run CMake
@@ -114,8 +120,49 @@ run.bat
 
 ## Raspberry Pi
 
-[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi.  The script [run_rpi.sh](./run_rpi.sh) mines with cpu miner, however this may be outdated.I have not mined with raspberry pi's in a while, and will update this section with the latest techniques once I can prove them out.
+[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but we summarize the steps below. 
 
+1. Update package manager
+
+```bash
+sudo apt-get update; sudo apt-get upgrade -y
+```
+
+2. Install dependencies (this may take a while)
+
+```bash
+sudo apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
+```
+
+3. Clone the repo
+
+```bash
+git clone https://github.com/xmrig/xmrig.git
+```
+
+4. Make the build directory and cd into it
+
+```bash
+mkdir xmrig/build && cd xmrig/build
+```
+
+5. Run CMake
+
+```bash
+cmake ..
+```
+
+6. Run Make
+
+```bash
+make -j$(nproc)
+```
+
+7. Copy `run.sh` into the excecutable directory and run it
+
+```bash
+./run_rpi.sh
+```
 
 # Resources 
 
