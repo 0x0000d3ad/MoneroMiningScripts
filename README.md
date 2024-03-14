@@ -1,6 +1,6 @@
 # Introduction
 
-This repo features mining scripts for Mac, Linux and Windows.  Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
+This repo features mining scripts for Linux, Mac, Windows, and Raspberry Pi (Ubuntu).  Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
 
 Feeling generous?  Donate Monero to this address:
 
@@ -54,10 +54,10 @@ cmake .. -DXMRIG_DEPS=scripts/deps
 make -j$(nproc)
 ```
 
-8. Copy `run.sh` into the excecutable directory and run it
+8. Copy [run.sh](./mac/run.sh) into the excecutable directory, set permissions and run it
 
 ```bash
-./run.sh
+chmod 777 run.sh; ./run.sh
 ```
 
 ## Mac
@@ -100,10 +100,10 @@ cmake .. -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl
 make -j$(sysctl -n hw.logicalcpu)
 ```
 
-7. Copy `run.sh` into the excecutable directory and run it
+7. Copy [run.sh](./mac/run.sh) into the excecutable directory, set permissions and run it
 
 ```bash
-./run.sh
+chmod 777 run.sh; ./run.sh
 ```
 
 ## Windows
@@ -112,7 +112,7 @@ make -j$(sysctl -n hw.logicalcpu)
 
 2. Unpack the Zip file
 
-3. Copy `run.bat` into the executables directory and run it
+3. Copy [run.bat](./windows/run.bat) into the executables directory and run it
 
 ```bash
 run.bat
@@ -120,7 +120,7 @@ run.bat
 
 ## Raspberry Pi
 
-[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but we summarize the steps below. 
+[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but the application seg faulted.  Instead of debugging why, I used [cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi).  After some modifications to the code, it worked.  The linked article explains installation in detail, but it is summarized below along with what didn't work and what I did to fix it.
 
 1. Update package manager
 
@@ -131,47 +131,49 @@ sudo apt-get update; sudo apt-get upgrade -y
 2. Install dependencies (this may take a while)
 
 ```bash
-sudo apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
+sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev 
 ```
 
 3. Clone the repo
 
 ```bash
-git clone https://github.com/xmrig/xmrig.git
+git clone https://github.com/xmrig/carolinedunn/cpuminer-multi
 ```
 
-4. Make the build directory and cd into it
+4. cd into the directory 
 
 ```bash
-mkdir xmrig/build && cd xmrig/build
+cd cpuminer-multi
 ```
 
-5. Run CMake
+5. Compile the mining code
 
 ```bash
-cmake ..
+sudo ./autogen.sh
+sudo ./configure
+sudo ./build.sh
 ```
 
-6. Run Make
+6. Work through errors.
+    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (TODO: discuss solution).
+    - A compiler error had an issue with the `-lz` flag, so I removed it.  (TODO: try installing Zlib?) 
+
+7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
 
 ```bash
-make -j$(nproc)
-```
-
-7. Copy `run.sh` into the excecutable directory and run it
-
-```bash
-./run_rpi.sh
+chmod777 run.sh; ./run.sh
 ```
 
 # Resources 
 
 1. [Mining on Linux](https://www.maketecheasier.com/mine-monero-linux/)
 2. [Mining on Mac](https://nnekrut.netlify.app/posts/lets-kill-this-macbook-how-to-mine-monero-on-a-mac/)
-3. [Mining on Raspberry Pi](https://raspberrytips.com/mine-monero-raspberry-pi/)
-4. [XMR miner](https://github.com/fireice-uk/xmr-stak/releases)
-6. [Miner pool](http://moneropools.com/)
-7. [Another Miner Pool](https://supportxmr.com/)
-8. [Swapping](https://letsexchange.io/)
-9. [Mining Article (doesn't open as of 2024-03-13)](https://www.monero-miner.info/2020/05/mine-monero-without-fees.html)
-10. [Mining Article (doesn't open as of 2024-03-13)](https://www.pinode.co.uk/monero-node-for-pi-3-or-armv7-devices-no-lcd-display.html)
+3. [Mining on Windows](https://github.com/fireice-uk/xmr-stak/releases)
+4. [Mining on Raspberry Pi with cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi)
+5. [Mining on Raspberry Pi with xmrig (segfaulted)](https://raspberrytips.com/mine-monero-raspberry-pi/)
+6. [cpuminer compiler error](https://github.com/openwall/john/issues/5351)
+7. [Miner pool](http://moneropools.com/)
+8. [Another Miner Pool](https://supportxmr.com/)
+9. [Swapping](https://letsexchange.io/)
+10. [Mining Article (doesn't open as of 2024-03-13)](https://www.monero-miner.info/2020/05/mine-monero-without-fees.html)
+11. [Mining Article (doesn't open as of 2024-03-13)](https://www.pinode.co.uk/monero-node-for-pi-3-or-armv7-devices-no-lcd-display.html)
