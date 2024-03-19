@@ -154,8 +154,8 @@ sudo ./configure
 sudo ./build.sh
 ```
 
-6. *Note*: here is where I encountered some errors: 
-    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (code repo in step 3 contains the fix for this)..
+6. **Note**: here is where I encountered some errors: 
+    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (code repo in step 3 contains the fix for this).
     - A compiler error had an issue with the `-lz` flag, so I removed it.  (TODO: try installing Zlib?) 
 
 7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
