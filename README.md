@@ -120,7 +120,7 @@ run.bat
 
 ## Raspberry Pi
 
-[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but the application seg faulted.  Instead of debugging why, I used [cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi).  After some modifications to the code, it worked.  The linked article explains installation in detail, but it is summarized below along with what didn't work and what I did to fix it.
+[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but the application seg faulted.  Instead of debugging why, I used [cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi).  After some modifications to the code, it worked.  I forked cpuminer [here](https://github.com/0x0000d3ad/cpuminer-multi) with the changes that fixed the compiler error.  The linked article explains installation in detail, but it is summarized below along with what didn't work and what I did to fix it.
 
 1. Update package manager
 
@@ -137,7 +137,7 @@ sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libss
 3. Clone the repo
 
 ```bash
-git clone https://github.com/xmrig/carolinedunn/cpuminer-multi
+git clone https://github.com/0x0000d3ad/cpuminer-multi
 ```
 
 4. cd into the directory 
@@ -154,8 +154,8 @@ sudo ./configure
 sudo ./build.sh
 ```
 
-6. Work through errors.
-    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (TODO: discuss solution).
+6. *Note*: here is where I encountered some errors: 
+    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (code repo in step 3 contains the fix for this)..
     - A compiler error had an issue with the `-lz` flag, so I removed it.  (TODO: try installing Zlib?) 
 
 7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
