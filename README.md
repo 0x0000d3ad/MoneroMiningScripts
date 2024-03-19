@@ -6,6 +6,51 @@ Feeling generous?  Donate Monero to this address:
 
 ```4A4tgkWPxYiAzwUmMDzrXkZ1p5a8aacmSdqniMYTgQN7FX9wajLDvtxDHp7tXJsJHANAcadruP8Cmgx4qgAcSVP84iTaPMA```
 
+# Setup
+
+Some niceties to streamline mining include:
+
+1. Setting a static IP for each miner
+2. Setting a hostname to identify each miner
+3. Mine on start-up
+
+We will cover each of these steps for Linux.
+
+## Static IP
+
+To set a static IP in Linux, see [this article](https://learnubuntu.com/set-static-ip/), summarized below in the following steps:
+
+1. Create and edit the file `sudo vim /etc/cloud/cloud.cfg.d/99-disable-cloud-init.cfg`, adding the following contents:
+
+```bash
+network: {config: disabled}
+```
+
+2. Edit the yaml file in `/etc/netplan`, updating the contents to the following (filling in your own information for the ethernet adapter, address and gateway)
+
+```bash
+network:
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.122.128/24
+      gateway4: 192.168.122.1
+  version: 2
+```
+
+3. Apply changes:
+
+```bash
+sudo netplan apply
+```
+
+4. You may have to invoke dhclient ```sudo dhclient eth0```
+
+## Hostname
+
+## Mine on Startup
+
 # Installation
 
 ## Linux
