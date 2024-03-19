@@ -49,7 +49,29 @@ sudo netplan apply
 
 ## Hostname
 
+[This article](https://linuxconfig.org/how-to-change-hostname-on-linux) sums up changing the hostname in Linux, by running the following command (enter your node name for `node001`):
+
+```bash
+sudo hostnamectl set-hostname node001
+```
+
 ## Mine on Startup
+
+To mine on [startup](https://phoenixnap.com/kb/crontab-reboot), invoke `crontab -e`, then enter a line for your script as follows:
+
+```bash
+@reboot /path/to/script/mine.sh
+```
+
+**Note**: If your script [requires root priviledges](https://askubuntu.com/questions/419548/how-to-set-up-a-root-cron-job-properly), invoke `sudo crontab -e` instead of `crontab -e`.
+
+An example script might look like:
+
+```bash
+dhclient eth0
+cd ~/mining/directory
+run.sh
+```
 
 # Installation
 
@@ -222,3 +244,7 @@ chmod777 run.sh; ./run.sh
 9. [Swapping](https://letsexchange.io/)
 10. [Mining Article (doesn't open as of 2024-03-13)](https://www.monero-miner.info/2020/05/mine-monero-without-fees.html)
 11. [Mining Article (doesn't open as of 2024-03-13)](https://www.pinode.co.uk/monero-node-for-pi-3-or-armv7-devices-no-lcd-display.html)
+12. [Setting a static IP on Linux](https://learnubuntu.com/set-static-ip/)
+13. [Setting hostname on Linux](https://linuxconfig.org/how-to-change-hostname-on-linux)
+14. [Running a cron job as root](https://askubuntu.com/questions/419548/how-to-set-up-a-root-cron-job-properly)
+15. [Cron tasks on startup](https://phoenixnap.com/kb/crontab-reboot)
