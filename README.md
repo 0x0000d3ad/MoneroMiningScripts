@@ -13,6 +13,10 @@ Feeling generous?  Donate Monero to this address:
 
 ```4A4tgkWPxYiAzwUmMDzrXkZ1p5a8aacmSdqniMYTgQN7FX9wajLDvtxDHp7tXJsJHANAcadruP8Cmgx4qgAcSVP84iTaPMA```
 
+# Pre-Setup
+
+Tuning your PC before mining can greatly impact your hashrate.  This article has some [ideas](https://www.nicehash.com/blog/post/how-to-optimize-cpu-mining-performance-for-monero-random-x#!) for optimization.
+
 # Setup
 
 Some niceties to streamline mining include:
@@ -258,3 +262,4 @@ chmod 777 run.sh; ./run.sh
 15. [Cron tasks on startup](https://phoenixnap.com/kb/crontab-reboot)
 16. [Installing GCC](https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/)
 17. [Installing zlib](https://itsfoss.com/install-zlib-ubuntu/)
+18. [Optimizing your PC for mining](https://www.nicehash.com/blog/post/how-to-optimize-cpu-mining-performance-for-monero-random-x#!)
