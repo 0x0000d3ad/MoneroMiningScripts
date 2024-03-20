@@ -222,9 +222,9 @@ sudo ./build.sh
 ```
 
 6. **Note**: here is where I encountered some errors (which have been corrected in the above steps):
-    - No compiler found.  [GCC](https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/) was installed.
-    - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (code repo in step 3 contains the fix for this).
-    - A compiler error had an issue with the `-lz` flag, so I removed it.  [zlib1g-dev](https://itsfoss.com/install-zlib-ubuntu/) was installed.
+    - No compiler found.  **Solution**: [GCC](https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/) was installed.
+    - Got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  **Solution**: Had to fix the C code manually (code repo in step 3 contains the fix for this).
+    - A compiler error had an issue with the `-lz` flag.  **Solution**: Initially, I removed the flag entirely from the build script, however installing [zlib1g-dev](https://itsfoss.com/install-zlib-ubuntu/) fixed the problem.
 
 7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
 
