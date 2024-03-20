@@ -198,7 +198,7 @@ sudo apt-get update; sudo apt-get upgrade -y
 2. Install dependencies (this may take a while)
 
 ```bash
-sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev build-essential
+sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev build-essential -y
 ```
 
 3. Clone the repo
