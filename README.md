@@ -229,7 +229,7 @@ sudo ./build.sh
 7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
 
 ```bash
-chmod777 run.sh; ./run.sh
+chmod 777 run.sh; ./run.sh
 ```
 
 # Resources 
