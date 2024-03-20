@@ -1,6 +1,13 @@
 # Introduction
 
-This repo features mining scripts for Linux, Mac, Windows, and Raspberry Pi (Ubuntu).  Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
+This repo features mining scripts for 
+
+1. [Linux](##Linux)
+2. [Mac](##Mac)
+3. [Raspberry Pi (Ubuntu)](##Raspbery Pi)
+4. [Windows](##Windows)
+
+Note that this is only a collection of scripts and shortcuts, summarizing the steps for these platforms.  Full credit is given to the original authors, where applicable.  See the [Resources](#Resources) section for more. 
 
 Feeling generous?  Donate Monero to this address:
 
