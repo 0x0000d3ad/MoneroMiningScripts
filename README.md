@@ -198,7 +198,7 @@ sudo apt-get update; sudo apt-get upgrade -y
 2. Install dependencies (this may take a while)
 
 ```bash
-sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev 
+sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev build-essential
 ```
 
 3. Clone the repo
@@ -221,9 +221,10 @@ sudo ./configure
 sudo ./build.sh
 ```
 
-6. **Note**: here is where I encountered some errors: 
+6. **Note**: here is where I encountered some errors (which have been corrected in the above steps):
+    - No compiler found.  [GCC](https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/) was installed.
     - Note: got a [compiler error](https://github.com/openwall/john/issues/5351): `'blake2b_state isn't a multiple of its alignment'`.  Had to fix the C code manually (code repo in step 3 contains the fix for this).
-    - A compiler error had an issue with the `-lz` flag, so I removed it.  (TODO: try installing Zlib?) 
+    - A compiler error had an issue with the `-lz` flag, so I removed it.  [zlib1g-dev](https://itsfoss.com/install-zlib-ubuntu/) was installed.
 
 7. Copy [run.sh](./raspberry_pi/run.sh) into the excecutable directory, set permissions and run it
 
@@ -248,3 +249,5 @@ chmod777 run.sh; ./run.sh
 13. [Setting hostname on Linux](https://linuxconfig.org/how-to-change-hostname-on-linux)
 14. [Running a cron job as root](https://askubuntu.com/questions/419548/how-to-set-up-a-root-cron-job-properly)
 15. [Cron tasks on startup](https://phoenixnap.com/kb/crontab-reboot)
+16. [Installing GCC](https://linuxize.com/post/how-to-install-gcc-on-ubuntu-20-04/)
+17. [Installing zlib](https://itsfoss.com/install-zlib-ubuntu/)
