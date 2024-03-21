@@ -198,7 +198,11 @@ run.bat
 
 ## Raspberry Pi
 
-[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but the application seg faulted.  Instead of debugging why, I used [cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi).  After some modifications to the code, it worked.  I forked cpuminer [here](https://github.com/0x0000d3ad/cpuminer-multi) with the changes that fixed the compiler error.  The linked article explains installation in detail, but it is summarized below along with what didn't work and what I did to fix it.
+[This article](https://raspberrytips.com/mine-monero-raspberry-pi/) describes getting xmrig set up on Raspberry Pi, but the application seg faulted, likely because my Raspberry Pi only has 1GB of RAM and 2 are required.  If you have a model with 2GB+ of RAM, follow the steps in the [Linux](#Linux) section.
+
+I pivoted to [cpuminer](https://www.tomshardware.com/how-to/mine-cryptocurrency-raspberry-pi).  After some modifications to the code, it worked.  I forked cpuminer [here](https://github.com/0x0000d3ad/cpuminer-multi) with the changes that fixed the compiler error (see step 6.).  The linked article explains installation in detail, but it is summarized below along with what didn't work and what I did to fix it.
+
+Monero moved from the cryptonight to RandomX.  Note that this fork of cpuminer does *not* support RandomX, so although we can still mine, we will not be mining Monero in this section (with my Raspberry Pi's).
 
 1. Update package manager
 
@@ -206,10 +210,10 @@ run.bat
 sudo apt-get update; sudo apt-get upgrade -y
 ```
 
-2. Install dependencies (this may take a while)
+2. Install dependencies (this may take a while).  Note that `net-tools` is optional, but is very useful.
 
 ```bash
-sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev build-essential -y
+sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev zlib1g-dev build-essential net-tools -y
 ```
 
 3. Clone the repo
