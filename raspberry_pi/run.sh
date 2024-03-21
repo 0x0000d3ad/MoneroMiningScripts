@@ -4,7 +4,7 @@
 #
 # name		: run.sh
 #
-# purpose	: run monero miner
+# purpose	: run miner
 #
 # usage		: ./run.sh
 #
