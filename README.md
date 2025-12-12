@@ -138,6 +138,12 @@ make -j$(nproc)
 chmod 777 run.sh; ./run.sh
 ```
 
+**Note**: Run as root if you get the following error:
+
+```
+FAILED TO APPLY MSR MOD, HASHRATE WILL BE LOW
+```
+
 ## Mac
 
 Follow the instructions [here](https://nnekrut.netlify.app/posts/lets-kill-this-macbook-how-to-mine-monero-on-a-mac/).  They're summed up below:
@@ -245,6 +251,12 @@ sudo ./build.sh
 
 ```bash
 chmod 777 run.sh; ./run.sh
+```
+
+**Note**: Run as root if you get the following error:
+
+```
+FAILED TO APPLY MSR MOD, HASHRATE WILL BE LOW
 ```
 
 # Resources 
